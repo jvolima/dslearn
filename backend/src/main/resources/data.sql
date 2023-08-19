@@ -17,3 +17,7 @@ INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Bootcamp HTML', 'ht
 
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', '2023-08-20T10:00:00Z', '2024-08-20T10:00:00Z', 1);
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0', '2023-09-20T10:00:00Z', '2024-09-20T10:00:00Z', 1);
+
+INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'https://www.publicdomainpictures.net/pictures/270000/nahled/course-classroom.jpg', 1, 1);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Forum', 'Tire suas dúvidas', 2, 'https://www.publicdomainpictures.net/pictures/270000/nahled/course-classroom.jpg', 2, 1);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Lives exclusivas para a turma', 3, 'https://www.publicdomainpictures.net/pictures/270000/nahled/course-classroom.jpg', 0, 1);
