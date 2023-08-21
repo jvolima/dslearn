@@ -22,8 +22,6 @@ public class Resource implements Serializable {
     private Integer position;
     private String imgUri;
     private ResourceType type;
-
-    @Column(nullable = true)
     private String externalLink;
 
     @ManyToOne
