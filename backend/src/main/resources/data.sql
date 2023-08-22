@@ -43,7 +43,11 @@ INSERT INTO tb_task (id, description, question_Count, approval_Count, weight, du
 
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (3, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (4, 1, 1);
 
 INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (1, 'Feedback da primeira tarefa: favor revisar', TIMESTAMP WITH TIME ZONE '2023-08-22T13:00:00Z', true, '/offers/1/resource/1/sections/1');
 INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (1, 'Feedback da segunda tarefa: favor revisar', TIMESTAMP WITH TIME ZONE '2023-08-22T14:00:00Z', true, '/offers/1/resource/1/sections/1');
 INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (1, 'Feedback da terceira tarefa: favor revisar', TIMESTAMP WITH TIME ZONE '2023-08-22T15:00:00Z', false, '/offers/1/resource/1/sections/1');
+
+INSERT INTO tb_deliver (lesson_id, user_id, offer_id, uri, moment, status, feedback, correct_Count) VALUES (4, 1, 1, 'https://github.com/jvolima/dscatalog', TIMESTAMP WITH TIME ZONE '2023-08-21T22:00:00Z', 1, 'Parabéns! A atividade foi resolvida perfeitamente.', 5);
