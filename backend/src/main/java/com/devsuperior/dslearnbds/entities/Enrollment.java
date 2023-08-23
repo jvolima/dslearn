@@ -5,10 +5,7 @@ import com.devsuperior.dslearnbds.entities.pk.EnrollmentPK;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -99,5 +96,18 @@ public class Enrollment implements Serializable {
 
     public List<Deliver> getDeliveries() {
         return deliveries;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Enrollment that = (Enrollment) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
