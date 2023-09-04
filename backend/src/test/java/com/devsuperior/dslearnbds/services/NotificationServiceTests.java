@@ -18,9 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @ExtendWith(SpringExtension.class)
 public class NotificationServiceTests {
@@ -37,7 +35,7 @@ public class NotificationServiceTests {
     private User user;
     private Notification notification;
     private Pageable pageable;
-    private PageImpl<Notification> pageEntity;
+    private PageImpl<Notification> page;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -54,9 +52,9 @@ public class NotificationServiceTests {
         notification.setRead(false);
         notification.setUser(user);
         notification.setRoute("/offers/1/resource/1/sections/1");
-        pageEntity = new PageImpl<>(List.of(notification));
+        page = new PageImpl<>(List.of(notification));
 
-        Mockito.when(notificationRepository.findByUser(user, pageable)).thenReturn(pageEntity);
+        Mockito.when(notificationRepository.findByUser(user, pageable)).thenReturn(page);
 
         Mockito.when(authService.authenticated()).thenReturn(user);
     }
@@ -65,7 +63,7 @@ public class NotificationServiceTests {
     public void notificationsForCurrentUserShouldReturnNotificationsDtoPage() {
         Page<NotificationDTO> pageDto = notificationService.notificationsForCurrentUser(pageable);
 
-        Assertions.assertEquals(pageEntity.getSize(), pageDto.getSize());
+        Assertions.assertEquals(page.getSize(), pageDto.getSize());
         Assertions.assertEquals(notification.getText(), pageDto.getContent().get(0).getText());
         Mockito.verify(notificationRepository).findByUser(user, pageable);
     }
